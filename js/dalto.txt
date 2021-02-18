@@ -1,0 +1,84 @@
+Un nodo en el DOM es cualquier etiqueta del cuerpo, como el parrafo, el body, etc.
+Document el nodo document es el nodo raiz, a partir del cual derivan del resto
+Element nodos definidos por etiqueta html
+Text el texto dentro de un node element se considera un nuevo nodo hijo de tipo 'text' (texto)
+Attibute los atributos de las equiquetas definen nodos (en JS se define como nodo de Element)
+Comentarios y otros (como las declaraciones doctype de la cabecera)
+
+El nodo hace referencia a la etiqueta
+
+<h1>Claudio</h1> h1 es el nodo element y Claudio es el nodo Text
+
+Cada nodo tiene un numero que le hace referencia (como tipo de nodo)
+Ej: el Tipo de nodo Document es id=1
+
+metodos de seleccion de Elementos
+document.getElementById() - selecciona por ID
+document.getElementsByTagName() - selecciona todos los elementos que coincidan con el nombre de la etiqueta
+document.querySelector() - 
+
+
+<p id="parrafo"> Seguime en LinkedIn</p>
+parrafo = document.getElementById("parrafo"); //selecciono un objeto ENTERO
+document.write(parrafo) //el navegador va a decir que es un objeto del tipo <p>
+
+parrafo = document.getElementsByTagName("p"); //una coleccion de elementos <p> (no devuelve un array, sino una lista de elementos)
+//si utilizamos un indice podriamos acceder
+document.write(parrafo[0]); //seleccionamos un objeto
+
+document.querySelector(".parrafo"); //("#parrafo") si fuera un id
+document.write(parrafo); //devuelve un solo elemento, el parrafo, no una lista
+
+document.querySelectorAll(".parrafo");
+document.write(parrafo[2]); //cuando queremos obtener un eleemento <p> particular, en este caso el de indice 2
+
+let parrafo = "seguime"
+document.write(parrafo)
+
+
+Metodos para Definir obtener y eliminar valores de atributos
+setAttribute() - modifica el valor de un atributo (por ej. de un input)
+getAttribute() - obtiene el valor de un atributo
+removeAttribute() - eliminar el valor de un tipo
+
+
+
+const rangoEtario =document.querySelector(".rangoEtario");
+document.write(rangoEtario); //
+
+rangoEtario.setAttribute("type", "number"); //cambia el type de rangoEtario por numerico
+
+En consola ponemos $0 y devuelve el tipo rangoEtario.$0
+
+valorRangoEtario = rangoEtario.getAttribute("type");
+
+rangoEtario.removeAttribute("type",""); //quita el valor del tipo
+rangoEtario.removeAttribute("type"); //elimina el atributo
+
+
+ATRIBUTOS GLOBALES
+------------------
+
+class - 
+
+id - 
+
+contenteditable - poder editar el contenido de un atributo
+titulo.contenido("contenteditable", "true"); //o false
+ 
+
+dir - 
+
+hidden - 
+titulo.contenido("hidden", "true"); //o false
+con poner hidden en el html ya no lo muestra
+
+
+style - titulo.style.backgroundColor="red"; //no se escriben los guiones en JS
+
+Ver los metodos de classList
+titulo.classList.remove("grande") //grande es la clase
+titulo.classList.add("grande") //grande es la clase y la agrega
+titulo.classList.item(1) //para saber el nombre de la clase definida en el objeto que tenga el indice 1 (para saber cual es la clase)
+
+

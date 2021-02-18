@@ -55,6 +55,7 @@ cowthink -p 'tengo sueño' (muestra una vaca con el pensamiento del mensaje)
 git status (para ver el estado actual de la copia local o repositorio)
 
 git diff (para ver qué cambió en cada archivo linea por linea desde la ultima revision del proyecto)
+//para calcular las diferencias entre archivos o entre dos ramas distintas
 
 git checkout . (se deshacen todos los cambios que se hicieron en TODOS los archivos)
 git checkout --<nombre del archivo> (para deshacer todos los cambios del archivo indicado)
@@ -103,6 +104,8 @@ Para unir la rama hija con la rama master se procede de la sig. manera:
   git merge <nombre de la rama a unificar>
   Ej: git merge proyecto1
   (esto unifica en la rama 'master' los cambios que se hicieron desde la rama 'proyecto1' en una sola rama, la 'master')
+  //es para unir RAMAS
+
 
 3- Una vez unificadas las ramas, se acostumbra borrar
   git branch -d <nombre de la rama que se unifico a la master>
@@ -122,6 +125,85 @@ git pull (para bajar cambios desde el repositorio remoto)
 git push (para subir cambios al repositorio remoto)
 
 
+Git Distribuido (para compartir repositorios con equipo de trabajo)
+---------------
+Cuando se crea un repositorio en GitHub, con git clone y la url podemos clonarlo.
+
+Otra manera de hacerlo, si el repositorio ya existe y no queremos clonarlo (porque ya existe), sino que quermos conectarlo, utilizamos el sig. comando:
+git remote add origin <url>  
+//El repositorio queda como si lo hubieran clonado de Internet en vez de inicializado en su propia computadora y luego en ese momento se puede empezar a hacer git push o git pull.
+
+Luego se puede hacer 'git pull origin' (obtenemos todos los cambios que se hicieron en el repositorio de Git)
+Si ponemos 'git push origin' (cargamos en el repositorio remoto, todos los cambios locales)
+
+Se pueden agregar tantos remotos como se quieran!
+Nota: recordar que origin es el nombre del repositorio principal (puede tener otro nombre).
+
+
+Bajar y subir cambios a distintos repositorios
+----------------------------------------------
+Teniendo un commit de la rama de nombre 'inyde' y lo queremos unir a otra rama llamada 'master', como las unificamos?
+Parados en nuestro 'master' podemos hacer:
+git checkout master //para verificar que estamos en 'master'
+Hacermos:
+git merge inyde/master
+(de esa manera tenemos TODOS los commit que estan en 'inyde' y que no estan en master, en la rama principal)
+Despues cuando escribamos 'git push' se publicaran los cambios de master y de inyde tambien!
+De esta manera podemos compartir trabajos entre nosotros.
+
+
+BUENAS PRACTICAS Generales de GIT
+----------------
+* Hacer commit frecuentemente en el proyecto (uno por dia seria lo ideal)
+(es mas facil de revertir, de seguir y de organizar el trabajo de una manera mas entendible para el grupo de trabajo)
+* Escribir buenas descripciones del commit (cuando pasa el tiempo nos olvidamos de que hacia)
+* Hacer commit de cosas relacionadas - un commit atomico
+* Si el cambio que hacemos es muy grande, dividir los cambios por commit
+
+
+Esta es la lista de comandos básicos para la consola de windows:
+---------------------------------------------------------------
+Cambiamos de directorio
+cd [destino]
+
+Regresamos un directorio atrás
+cd  …/
+
+Regresamos al inicio de nuestra ruta, al disco duro (normalmente c:)
+cd \
+
+Muestra los directorios que hay en nuestra posición actual
+dir
+
+Limpiamos pantalla
+cls
+
+Creamos un directorio o Carpeta
+mkdir Nombre_Carpeta
+
+Eliminamos un directorio (solo si esta vacío)
+rmdir Nombre_Carpeta
+
+Eliminamos un archivo
+del Nombre_Archiva
+
+
+
+Conceptos Generales de Git
+--------------------------
+Un repositorio es el directorio del proyecto donde estan todos los archivos y la historia del primer dia.
+Una revision es una version determinada de nuestro proyecto (puede ser un nro.) Podemos compartir ese nro y determinar si estamos en la ultima revision o no.
+Un commit es una accion por la que se percisten los cambios que hicimos en nuestra computadora que se puede aplicar a un repositorio (guarda todo el historial de todos los archivos que se cambiaron)
+La copia local es la copia de nuestra computadora que tenemos de un repositorio.
+El area de staging es un area de carga donde se decide que va a guardarse en el proximo commit (y ademas ignorar copias que solo queremos manterner en nuestra pc)
+
+Como versionamos nuestro proyecto?
+git init (inicializamos Git en nuestro proyecto - se crea la carpeta .git en el path)
+git status (podemos ver el estado de la COPIA LOCAL)
+git add . (notificamos que agregamos al area de staging los archivos que hemos agregado o hechos cambios)
+git commit -m 'mensaje de la descripcion del cambio'
+(al presionar ENTER git guardo esa version de nuestro repositorio)
+Si escribimos: git log (podemos ver ese cambio realizado)
 
 
 
